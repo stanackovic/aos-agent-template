@@ -29,8 +29,8 @@ public class AosAgentManager implements IAosExtension, ServiceConnection {
     private static final String LOG_TAG = "AosAgentManager";
 
     // SystemAgent service identifiers
-    private static final String SERVICE_PACKAGE = "com.ttx.systemagent";
-    private static final String SERVICE_CLASS = "com.ttx.systemagent.SystemAgentService";
+    private static final String SERVICE_PACKAGE = "com.ttx.osagent";
+    private static final String SERVICE_CLASS = "com.ttx.osagent.AosAgentService";
 
     // Application context
     private final Context mApplicationContext;
