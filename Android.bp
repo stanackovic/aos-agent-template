@@ -1,0 +1,70 @@
+java_library {
+    name: "AosAgentComm",
+
+    sdk_version: "current",
+    min_sdk_version: "29",
+
+    // All Aidl files where we explicitly create a java implmentation needs to be excluded from src list below.
+    srcs: [
+        "lib/aidl/**/I*.aidl",
+    ],
+
+    aidl: {
+        local_include_dirs : [
+            "lib/aidl",
+        ]
+    }
+}
+
+java_library {
+    name: "AosAgentLib",
+
+    sdk_version: "current",
+    min_sdk_version: "29",
+
+    // All Aidl files where we explicitly create a java implmentation needs to be excluded from src list below.
+    srcs: [
+        "lib/java/**/*.java",
+    ],
+
+    aidl: {
+        local_include_dirs : [
+            "lib/aidl",
+            "lib/java",
+        ]
+    },
+
+    static_libs: [
+        "AosAgentComm",
+    ]
+}
+
+android_app {
+    name: "AosAgentService",
+
+    owner: "technotix",
+    certificate: "platform",
+    platform_apis: true,
+
+    manifest: "service/src/main/AndroidManifest.xml",
+
+    srcs: [
+        "service/**/*.java"
+    ],
+
+    resource_dirs: [
+        "service/src/main/res"
+    ],
+
+    static_libs: [
+        "AosAgentComm",
+    ],
+
+    dex_preopt: {
+        enabled: false
+    },
+
+    optimize: {
+        enabled: false
+    }
+}

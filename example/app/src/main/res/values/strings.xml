@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Aos Agent Lib Example</string>
+
+    <string name="title_system">System Settings</string>
+
+    <string name="action_get_device_serial">Get Serial Number</string>
+
+</resources>
